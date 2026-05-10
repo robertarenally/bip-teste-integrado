@@ -1,0 +1,222 @@
+<section class="dashboard-page">
+  <div class="dashboard-header">
+    <div>
+      <span class="dashboard-kicker">Visão geral</span>
+      <h1>Dashboard de Benefícios</h1>
+      <p>Resumo operacional dos benefícios cadastrados e movimentações recentes.</p>
+    </div>
+
+    <button class="btn btn-sicoob" type="button" (click)="carregarDashboard()">
+      <i class="bi bi-arrow-clockwise me-2"></i>
+      Atualizar
+    </button>
+  </div>
+
+  @if (carregando()) {
+    <div class="loading-card">
+      <div class="spinner-border text-sicoob" role="status"></div>
+      <span>Carregando informações...</span>
+    </div>
+  }
+
+  @if (erro()) {
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      {{ erro() }}
+    </div>
+  }
+
+  @if (!carregando() && !erro()) {
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="metric-card fade-in-card">
+          <div class="metric-icon bg-sicoob-primary">
+            <i class="bi bi-wallet2"></i>
+          </div>
+          <div>
+            <span>Total de benefícios</span>
+            <strong>{{ totalBeneficios() }}</strong>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="metric-card fade-in-card delay-1">
+          <div class="metric-icon bg-sicoob-success">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <div>
+            <span>Benefícios ativos</span>
+            <strong>{{ beneficiosAtivos() }}</strong>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="metric-card fade-in-card delay-2">
+          <div class="metric-icon bg-sicoob-dark">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+          <div>
+            <span>Valor total</span>
+            <strong>{{ valorTotal() | currency:'BRL':'symbol':'1.2-2' }}</strong>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <article class="metric-card fade-in-card delay-3">
+          <div class="metric-icon bg-sicoob-light">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <div>
+            <span>Maior benefício</span>
+            <strong>
+              @if (maiorBeneficio()) {
+                {{ maiorBeneficio()?.valor | currency:'BRL':'symbol':'1.2-2' }}
+              } @else {
+                R$ 0,00
+              }
+            </strong>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-xl-4">
+        <article class="dashboard-card">
+          <div class="card-title-area">
+            <div>
+              <h2>Status dos benefícios</h2>
+              <p>Distribuição entre ativos e inativos.</p>
+            </div>
+            <i class="bi bi-pie-chart"></i>
+          </div>
+
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [data]="statusChartData()"
+              [options]="doughnutOptions"
+              type="doughnut">
+            </canvas>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-xl-8">
+        <article class="dashboard-card">
+          <div class="card-title-area">
+            <div>
+              <h2>Top 5 benefícios por valor</h2>
+              <p>Benefícios com maior saldo cadastrado.</p>
+            </div>
+            <i class="bi bi-bar-chart-line"></i>
+          </div>
+
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [data]="valoresChartData()"
+              [options]="barOptions"
+              type="bar">
+            </canvas>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-12 col-xl-7">
+        <article class="dashboard-card">
+          <div class="card-title-area">
+            <div>
+              <h2>Benefícios recentes</h2>
+              <p>Últimos benefícios retornados pela API.</p>
+            </div>
+            <i class="bi bi-list-check"></i>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @for (beneficio of beneficios().slice(0, 5); track beneficio.id) {
+                  <tr>
+                    <td class="fw-semibold">{{ beneficio.nome }}</td>
+                    <td>{{ beneficio.descricao }}</td>
+                    <td>{{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
+                    <td>
+                      <span class="status-badge" [class.inactive]="!beneficio.ativo">
+                        {{ beneficio.ativo ? 'Ativo' : 'Inativo' }}
+                      </span>
+                    </td>
+                  </tr>
+                } @empty {
+                  <tr>
+                    <td colspan="4" class="text-center text-muted py-4">
+                      Nenhum benefício cadastrado.
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-xl-5">
+        <article class="dashboard-card">
+          <div class="card-title-area">
+            <div>
+              <h2>Últimas transferências</h2>
+              <p>Movimentações registradas no front-end.</p>
+            </div>
+            <i class="bi bi-arrow-left-right"></i>
+          </div>
+
+          <div class="transfer-list">
+            @for (transferencia of ultimasTransferencias(); track transferencia.id) {
+              <div class="transfer-item">
+                <div class="transfer-icon">
+                  <i class="bi bi-arrow-right"></i>
+                </div>
+
+                <div class="transfer-content">
+                  <strong>
+                    {{ transferencia.valor | currency:'BRL':'symbol':'1.2-2' }}
+                  </strong>
+
+                  <span>
+                    {{ transferencia.origemNome || ('Origem #' + transferencia.origemId) }}
+                    para
+                    {{ transferencia.destinoNome || ('Destino #' + transferencia.destinoId) }}
+                  </span>
+
+                  <small>
+                    {{ transferencia.dataHora | date:'dd/MM/yyyy HH:mm' }}
+                  </small>
+                </div>
+              </div>
+            } @empty {
+              <div class="empty-state">
+                <i class="bi bi-inbox"></i>
+                <strong>Nenhuma transferência recente</strong>
+                <span>As próximas transferências aparecerão aqui.</span>
+              </div>
+            }
+          </div>
+        </article>
+      </div>
+    </div>
+  }
+</section>
