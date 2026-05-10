@@ -482,3 +482,14 @@ apiUrl: 'http://localhost:8080/api/v1'
 ```
 
 ---
+
+# 🌐 Aplicação Online
+
+Frontend:
+https://robertarenally.github.io/bip-teste-integrado/
+
+Backend:
+https://bip-teste-integrado.onrender.com
+
+Swagger:
+https://bip-teste-integrado.onrender.com/swagger-ui/index.html#/Benef%C3%ADcios/listar
