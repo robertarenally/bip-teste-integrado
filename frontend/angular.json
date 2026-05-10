@@ -55,6 +55,17 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "pipeline": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.pipeline.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false
             }
           },
           "defaultConfiguration": "production"
@@ -67,17 +78,6 @@
             },
             "development": {
               "buildTarget": "frontend:build:development"
-            },
-            "pipeline": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.pipeline.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false
             }
           },
           "defaultConfiguration": "development"
