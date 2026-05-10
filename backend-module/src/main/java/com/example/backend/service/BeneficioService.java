@@ -76,9 +76,9 @@ public class BeneficioService {
     @Transactional
     public void transferir(TransferenciaRequest request) {
         beneficioEjbService.transfer(
-                request.origemId(),
-                request.destinoId(),
-                request.valor()
+                request.fromId(),
+                request.toId(),
+                request.amount()
         );
     }
 
