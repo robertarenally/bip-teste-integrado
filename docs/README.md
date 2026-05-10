@@ -42,23 +42,29 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 - Documentação (10%)
 - Frontend (10%)
 
-## Como executar
+## ▶️ Como executar
 
 mvn clean install
 mvn -pl backend-module spring-boot:run
 
-## Banco H2
+## 🗄️ Banco H2
 
 Console: http://localhost:8080/h2-console
 
 JDBC URL:
 jdbc:h2:mem:bipdb
 
-## Swagger
+## 📘 Swagger / OpenAPI
+
+Com o backend em execução, acesse:
 
 http://localhost:8080/swagger-ui.html
 
-## Endpoints principais
+Documentação OpenAPI em JSON:
+
+http://localhost:8080/v3/api-docs
+
+## 🔌 Endpoints principais
 
 GET /api/v1/beneficios
 
@@ -69,4 +75,3 @@ PUT /api/v1/beneficios/{id}
 DELETE /api/v1/beneficios/{id}
 
 POST /api/v1/beneficios/transferencias
-
