@@ -182,7 +182,7 @@ http://localhost:8080/v3/api-docs
 
 ## Swagger UI
 
-![Swagger](docs/images/swagger.png)
+![Swagger](images/swagger.png)
 
 ---
 
@@ -225,7 +225,7 @@ GET http://localhost:8080/api/v1/beneficios
 
 ### 📷 Evidência esperada
 
-![GET Beneficios](docs/images/postman-get-beneficios.png)
+![GET Beneficios](images/postman-get-beneficios.png)
 
 ---
 
@@ -239,7 +239,7 @@ GET http://localhost:8080/api/v1/beneficios/1
 
 ### 📷 Evidência esperada
 
-![GET Beneficios](docs/images/postman-get-beneficio-por-id.png)
+![GET Beneficios](images/postman-get-beneficio-por-id.png)
 
 ---
 
@@ -270,7 +270,7 @@ Content-Type: application/json
 
 ### 📷 Evidência esperada
 
-![POST Beneficio](docs/images/postman-post-beneficio.png)
+![POST Beneficio](images/postman-post-beneficio.png)
 
 ---
 
@@ -295,7 +295,7 @@ PUT http://localhost:8080/api/v1/beneficios/3
 
 ### 📷 Evidência esperada
 
-![PUT Beneficio](docs/images/postman-put-beneficio.png)
+![PUT Beneficio](images/postman-put-beneficio.png)
 
 ---
 
@@ -309,7 +309,7 @@ DELETE http://localhost:8080/api/v1/beneficios/3
 
 ### 📷 Evidência esperada
 
-![DELETE Beneficio](docs/images/postman-delete-beneficio.png)
+![DELETE Beneficio](images/postman-delete-beneficio.png)
 
 ---
 
@@ -333,6 +333,6 @@ POST http://localhost:8080/api/v1/beneficios/transferencias
 
 ### 📷 Evidência esperada
 
-![Transferencia](docs/images/postman-transferencia.png)
+![Transferencia](images/postman-transferencia.png)
 
 ---
