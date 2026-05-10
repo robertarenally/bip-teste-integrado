@@ -49,10 +49,22 @@ mvn -pl backend-module spring-boot:run
 
 ## 🗄️ Banco H2
 
-Console: http://localhost:8080/h2-console
+Acesse o console do banco:
 
-JDBC URL:
-jdbc:h2:mem:bipdb
+http://localhost:8080/h2-console
+
+Utilize as seguintes configurações:
+
+| Campo      | Valor               |
+|------------|---------------------|
+| JDBC URL   | jdbc:h2:mem:bipdb   |
+| User Name  | sa                  |
+| Password   | *(vazio)*           |
+
+Após conectar, será possível visualizar as tabelas criadas pelos scripts:
+
+- `schema.sql`
+- `seed.sql`
 
 ## 📘 Swagger / OpenAPI
 
