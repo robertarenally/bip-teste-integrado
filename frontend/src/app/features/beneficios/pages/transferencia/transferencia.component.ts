@@ -82,11 +82,6 @@ export class TransferenciaComponent implements OnInit {
 
   transferir(): void {
 
-    console.log('Método transferir chamado');
-    console.log(this.form.value);
-    console.log(this.form.valid);
-    console.log(this.form.errors);
-
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -95,10 +90,6 @@ export class TransferenciaComponent implements OnInit {
     const origem = this.origemSelecionada();
     const destino = this.destinoSelecionado();
     const valor = Number(this.form.value.valor);
-
-    console.log(origem);
-    console.log(destino);
-    console.log(valor);
 
     if (!origem || !destino) {
       return;
@@ -113,8 +104,6 @@ export class TransferenciaComponent implements OnInit {
       Swal.fire('Saldo insuficiente', 'O valor informado é maior que o saldo do benefício de origem.', 'warning');
       return;
     }
-
-    console.log('Vai abrir confirmação');
 
     Swal.fire({
       title: 'Confirmar transferência?',
