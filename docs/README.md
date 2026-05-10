@@ -118,10 +118,6 @@ Após conectar, será possível visualizar as tabelas criadas automaticamente pe
 
 ![H2 Console](docs/images/h2-console.png)
 
-### Resultado esperado
-
-![H2 Console](docs/images/h2-console.png)
-
 ---
 
 # 📘 Swagger / OpenAPI
