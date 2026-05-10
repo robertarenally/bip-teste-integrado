@@ -38,7 +38,7 @@ jobs:
 
       - name: Build frontend
         working-directory: frontend
-        run: npm run build -- --configuration pipeline --base-href /bip-teste-integrado/
+        run: npm run build -- --configuration pipeline --base-href /bip-teste-integrado/frontend/
 
       - name: Upload artifact GitHub Pages
         uses: actions/upload-pages-artifact@v3
