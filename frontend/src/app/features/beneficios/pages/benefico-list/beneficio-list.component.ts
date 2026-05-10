@@ -10,6 +10,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BeneficioFormModalComponent } from '../../pages/beneficio-form-modal/beneficio-form-modal.component';
 import { BeneficioDetailModalComponent } from '../../pages/beneficio-detail-modal/beneficio-detail-modal.component';
 
+import Swal from 'sweetalert2';
+
 type SortField = 'nome' | 'descricao' | 'valor' | 'ativo';
 type SortDirection = 'asc' | 'desc';
 
@@ -128,19 +130,6 @@ export class BeneficioListComponent implements OnInit {
     this.paginaAtual.set(pagina);
   }
 
-  excluir(beneficio: Beneficio): void {
-    const confirmado = confirm(`Deseja excluir o benefício "${beneficio.nome}"?`);
-
-    if (!confirmado) {
-      return;
-    }
-
-    this.beneficioService.excluir(beneficio.id).subscribe({
-      next: () => this.carregarBeneficios(),
-      error: () => alert('Não foi possível excluir o benefício.')
-    });
-  }
-
   paginas(): number[] {
     return Array.from({ length: this.totalPaginas() }, (_, index) => index + 1);
   }
@@ -188,5 +177,69 @@ export class BeneficioListComponent implements OnInit {
     });
 
     modalRef.componentInstance.beneficio = beneficio;
+  }
+  excluir(beneficio: Beneficio): void {
+    Swal.fire({
+      title: 'Excluir benefício?',
+      html: `
+        <div style="text-align: center">
+          <strong>${beneficio.nome}</strong>
+          <p style="margin-top: 8px; color: #64748b">
+            Essa ação não poderá ser desfeita.
+          </p>
+        </div>
+      `,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim, excluir',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true,
+      buttonsStyling: false,
+      customClass: {
+        popup: 'sicoob-alert-popup',
+        confirmButton: 'btn btn-danger sicoob-alert-button',
+        cancelButton: 'btn btn-outline-sicoob sicoob-alert-button'
+      }
+    }).then(result => {
+      if (!result.isConfirmed) {
+        return;
+      }
+
+      this.carregando.set(true);
+
+      this.beneficioService.excluir(beneficio.id).subscribe({
+        next: () => {
+          this.carregando.set(false);
+          this.carregarBeneficios();
+
+          Swal.fire({
+            title: 'Benefício excluído!',
+            text: 'O benefício foi removido com sucesso.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            buttonsStyling: false,
+            customClass: {
+              popup: 'sicoob-alert-popup',
+              confirmButton: 'btn btn-sicoob sicoob-alert-button'
+            }
+          });
+        },
+        error: () => {
+          this.carregando.set(false);
+
+          Swal.fire({
+            title: 'Erro ao excluir',
+            text: 'Não foi possível excluir o benefício. Tente novamente.',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            buttonsStyling: false,
+            customClass: {
+              popup: 'sicoob-alert-popup',
+              confirmButton: 'btn btn-sicoob sicoob-alert-button'
+            }
+          });
+        }
+      });
+    });
   }
 }
