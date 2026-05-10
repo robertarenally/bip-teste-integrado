@@ -73,6 +73,42 @@ Problemas corrigidos:
 
 ---
 
+# 🛠️ Tecnologias utilizadas
+
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- H2 Database
+- Swagger / OpenAPI
+- Maven
+- Angular
+- EJB
+- JUnit / Mockito
+
+---
+
+# ✅ Melhorias implementadas
+
+- Arquitetura em camadas
+- CRUD completo
+- Integração Backend + EJB
+- Controle transacional
+- Locking pessimista
+- Tratamento de exceções
+- Execução automática de scripts SQL
+- Documentação Swagger
+- Testes automatizados
+- README detalhado
+
+# ✅ Scripts executados automaticamente
+
+Os scripts abaixo são executados automaticamente na inicialização da aplicação:
+
+- `db/schema.sql`
+- `db/seed.sql`
+
+---
+
 # ▶️ Como executar
 
 ## Build do projeto
@@ -88,6 +124,10 @@ mvn -pl backend-module spring-boot:run
 ```
 
 ---
+
+# 📷 Evidência - Inicialização da aplicação
+
+![Spring Boot Startup](images/startup.png)
 
 # 🗄️ Banco H2
 
@@ -116,7 +156,9 @@ Após conectar, será possível visualizar as tabelas criadas automaticamente pe
 
 ## Console H2
 
-![H2 Console](docs/images/h2-console.png)
+![H2 Console](images/h2-console.png)
+
+![H2 Console](images/h2-console-select.png)
 
 ---
 
@@ -139,16 +181,6 @@ http://localhost:8080/v3/api-docs
 # 📷 Evidências - Swagger
 
 ## Swagger UI
-
-> Inserir print da tela do Swagger.
-
-### Exemplo de inserção
-
-```md
-![Swagger](docs/images/swagger.png)
-```
-
-### Resultado esperado
 
 ![Swagger](docs/images/swagger.png)
 
@@ -193,9 +225,7 @@ GET http://localhost:8080/api/v1/beneficios
 
 ### 📷 Evidência esperada
 
-```md
 ![GET Beneficios](docs/images/postman-get-beneficios.png)
-```
 
 ---
 
@@ -209,9 +239,7 @@ GET http://localhost:8080/api/v1/beneficios/1
 
 ### 📷 Evidência esperada
 
-```md
 ![GET Beneficios](docs/images/postman-get-beneficio-por-id.png)
-```
 
 ---
 
@@ -242,9 +270,7 @@ Content-Type: application/json
 
 ### 📷 Evidência esperada
 
-```md
 ![POST Beneficio](docs/images/postman-post-beneficio.png)
-```
 
 ---
 
@@ -269,9 +295,7 @@ PUT http://localhost:8080/api/v1/beneficios/3
 
 ### 📷 Evidência esperada
 
-```md
 ![PUT Beneficio](docs/images/postman-put-beneficio.png)
-```
 
 ---
 
@@ -285,9 +309,7 @@ DELETE http://localhost:8080/api/v1/beneficios/3
 
 ### 📷 Evidência esperada
 
-```md
 ![DELETE Beneficio](docs/images/postman-delete-beneficio.png)
-```
 
 ---
 
@@ -311,56 +333,6 @@ POST http://localhost:8080/api/v1/beneficios/transferencias
 
 ### 📷 Evidência esperada
 
-```md
 ![Transferencia](docs/images/postman-transferencia.png)
-```
 
 ---
-
-# ✅ Scripts executados automaticamente
-
-Os scripts abaixo são executados automaticamente na inicialização da aplicação:
-
-- `db/schema.sql`
-- `db/seed.sql`
-
----
-
-# 📷 Evidência - Inicialização da aplicação
-
-> Inserir print do log do Spring Boot mostrando execução do banco.
-
-### Exemplo
-
-```md
-![Spring Boot Startup](docs/images/startup.png)
-```
-
----
-
-# 🛠️ Tecnologias utilizadas
-
-- Java 17
-- Spring Boot 3
-- Spring Data JPA
-- H2 Database
-- Swagger / OpenAPI
-- Maven
-- Angular
-- EJB
-- JUnit / Mockito
-
----
-
-# ✅ Melhorias implementadas
-
-- Arquitetura em camadas
-- CRUD completo
-- Integração Backend + EJB
-- Controle transacional
-- Locking pessimista
-- Tratamento de exceções
-- Execução automática de scripts SQL
-- Documentação Swagger
-- Testes automatizados
-- README detalhado
