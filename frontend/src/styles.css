@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+.beneficio-modal .modal-content {
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+}
+
+@media (max-width: 576px) {
+  .beneficio-modal {
+    margin: 0.75rem;
+  }
+}
+
+.beneficio-detail-modal .modal-content {
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+}
+
+.sicoob-alert-popup {
+  border-radius: 1.25rem !important;
+  padding: 1rem !important;
+}
+
+.sicoob-alert-popup .swal2-title {
+  color: #003641 !important;
+  font-weight: 800 !important;
+}
+
+.sicoob-alert-popup .swal2-html-container {
+  color: #475569 !important;
+}
+
+.sicoob-alert-button {
+  min-width: 130px;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  padding: 0.7rem 1.2rem !important;
+  margin: 0 0.25rem !important;
+}
+
+.btn-sicoob {
+  background: #00ae9d !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+
+.btn-sicoob:hover {
+  background: #008f82 !important;
+  color: #fff !important;
+}
+
+.btn-outline-sicoob {
+  border: 1px solid rgba(0, 174, 157, 0.35) !important;
+  color: #003641 !important;
+  background: #fff !important;
+}
+
+.btn-outline-sicoob:hover {
+  background: rgba(0, 174, 157, 0.12) !important;
+}
+
+@media (max-width: 576px) {
+  .sicoob-alert-button {
+    width: 100%;
+    margin: 0.25rem 0 !important;
+  }
+
+  .sicoob-alert-popup .swal2-actions {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+}

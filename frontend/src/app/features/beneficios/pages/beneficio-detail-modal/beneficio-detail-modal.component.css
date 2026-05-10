@@ -1,0 +1,135 @@
+.detail-header {
+  border-bottom: 1px solid #eef2f7;
+  padding: 1.25rem 1.5rem;
+}
+
+.detail-kicker {
+  display: inline-flex;
+  margin-bottom: 0.25rem;
+  color: #00ae9d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.modal-title {
+  color: #003641;
+  font-weight: 800;
+}
+
+.detail-body {
+  padding: 1.5rem;
+}
+
+.hero-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(0, 174, 157, 0.14), rgba(125, 182, 28, 0.1));
+}
+
+.hero-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 1.1rem;
+  background: #00ae9d;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.hero-card h3 {
+  margin: 0 0 0.5rem;
+  color: #003641;
+  font-weight: 900;
+}
+
+.status-badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: rgba(44, 156, 91, 0.14);
+  color: #197644;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.status-badge.inactive {
+  background: rgba(100, 116, 139, 0.14);
+  color: #64748b;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.info-card {
+  border: 1px solid #eef2f7;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.info-card.full {
+  grid-column: 1 / -1;
+}
+
+.info-card i {
+  color: #00ae9d;
+  font-size: 1.25rem;
+}
+
+.info-card span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.info-card strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: #003641;
+  font-size: 1rem;
+}
+
+.detail-footer {
+  border-top: 1px solid #eef2f7;
+  padding: 1rem 1.5rem;
+}
+
+.btn-outline-sicoob {
+  border: 1px solid rgba(0, 174, 157, 0.35);
+  color: #003641;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.7rem 1.25rem;
+}
+
+.btn-outline-sicoob:hover {
+  background: rgba(0, 174, 157, 0.12);
+}
+
+@media (max-width: 576px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .detail-footer .btn {
+    width: 100%;
+  }
+}

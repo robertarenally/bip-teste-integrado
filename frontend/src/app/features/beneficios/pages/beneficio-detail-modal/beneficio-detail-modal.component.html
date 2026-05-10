@@ -1,0 +1,55 @@
+<div class="modal-header detail-header">
+  <div>
+    <span class="detail-kicker">Visualização</span>
+    <h4 class="modal-title">Detalhes do benefício</h4>
+  </div>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Fechar"
+    (click)="activeModal.dismiss()">
+  </button>
+</div>
+
+<div class="modal-body detail-body">
+  <div class="hero-card">
+    <div class="hero-icon">
+      {{ beneficio.nome.charAt(0) }}
+    </div>
+
+    <div>
+      <h3>{{ beneficio.nome }}</h3>
+
+      <span class="status-badge" [class.inactive]="!beneficio.ativo">
+        {{ beneficio.ativo ? 'Ativo' : 'Inativo' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <i class="bi bi-hash"></i>
+      <span>Código</span>
+      <strong>#{{ beneficio.id }}</strong>
+    </div>
+
+    <div class="info-card">
+      <i class="bi bi-cash-coin"></i>
+      <span>Valor</span>
+      <strong>{{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}</strong>
+    </div>
+
+    <div class="info-card full">
+      <i class="bi bi-card-text"></i>
+      <span>Descrição</span>
+      <strong>{{ beneficio.descricao }}</strong>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer detail-footer">
+  <button class="btn btn-outline-sicoob" type="button" (click)="activeModal.dismiss()">
+    Fechar
+  </button>
+</div>

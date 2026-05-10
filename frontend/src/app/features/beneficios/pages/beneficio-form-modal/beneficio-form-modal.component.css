@@ -1,0 +1,140 @@
+.custom-modal-header {
+  border-bottom: 1px solid #eef2f7;
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-kicker {
+  display: inline-flex;
+  margin-bottom: 0.25rem;
+  color: #00ae9d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.modal-title {
+  color: #003641;
+  font-weight: 800;
+}
+
+.custom-modal-body {
+  padding: 1.5rem;
+}
+
+.custom-modal-footer {
+  border-top: 1px solid #eef2f7;
+  padding: 1rem 1.5rem;
+}
+
+.form-label {
+  color: #003641;
+  font-weight: 700;
+}
+
+.form-control {
+  min-height: 46px;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  color: #003641;
+}
+
+.form-control:focus {
+  border-color: #00ae9d;
+  box-shadow: 0 0 0 0.2rem rgba(0, 174, 157, 0.12);
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  color: #00ae9d;
+  transform: translateY(-50%);
+}
+
+.input-icon .form-control {
+  padding-left: 2.75rem;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.status-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 46px;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+
+.status-toggle strong,
+.status-toggle span {
+  display: block;
+}
+
+.status-toggle strong {
+  color: #003641;
+  font-weight: 800;
+}
+
+.status-toggle span {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.form-check-input {
+  width: 3rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #00ae9d;
+  border-color: #00ae9d;
+}
+
+.btn-sicoob {
+  background: #00ae9d;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.7rem 1.25rem;
+}
+
+.btn-sicoob:hover {
+  background: #008f82;
+  color: #fff;
+}
+
+.btn-outline-sicoob {
+  border: 1px solid rgba(0, 174, 157, 0.35);
+  color: #003641;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.7rem 1.25rem;
+}
+
+.btn-outline-sicoob:hover {
+  background: rgba(0, 174, 157, 0.12);
+  color: #003641;
+}
+
+@media (max-width: 576px) {
+  .custom-modal-footer {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .custom-modal-footer .btn {
+    width: 100%;
+  }
+}
