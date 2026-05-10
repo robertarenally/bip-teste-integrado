@@ -41,8 +41,21 @@
             <scope>test</scope>
         </dependency>
         
-        <!-- Incluindo a dependencia do módulo EJB-->
-        <dependency>
+		<!-- Validações com @Valid, @NotNull, @Positive etc -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		
+		<!-- Swagger / OpenAPI -->
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+		    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		
+		<!-- Módulo EJB -->
+		<dependency>
 		    <groupId>com.example</groupId>
 		    <artifactId>ejb-module</artifactId>
 		    <version>1.0.0</version>

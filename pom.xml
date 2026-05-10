@@ -12,6 +12,10 @@
         <version>3.2.5</version>
         <relativePath/>
     </parent>
+    
+    <properties>
+	    <java.version>17</java.version>
+	</properties>
 
     <groupId>com.example</groupId>
     <artifactId>bip-teste-integrado</artifactId>
@@ -23,9 +27,5 @@
         <module>ejb-module</module>
         <module>backend-module</module>
     </modules>
-
-    <properties>
-        <java.version>17</java.version>
-    </properties>
 
 </project>
