@@ -53,7 +53,6 @@ Problemas corrigidos:
 - Locking pessimista para evitar concorrência
 - Prevenção de inconsistência e lost update
 - Validações de transferência
-- Implementação do frontend
 
 ---
 
@@ -83,6 +82,8 @@ Problemas corrigidos:
 - Documentação Swagger
 - Testes automatizados
 - README detalhado
+- Implementação do frontend
+- Deploy público frontend + backend
 
 ## ✅ Scripts executados automaticamente
 
@@ -484,6 +485,8 @@ apiUrl: 'http://localhost:8080/api/v1'
 ---
 
 # 🌐 Aplicação Online
+
+Disponibilização da aplicação fullstack em produção no GitHub Pages(FrontEnd) e Render(backend)
 
 ## Frontend
 
