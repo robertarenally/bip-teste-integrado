@@ -56,7 +56,7 @@ Problemas corrigidos:
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas no BackEnd
 
 - Java 17
 - Spring Boot 3
