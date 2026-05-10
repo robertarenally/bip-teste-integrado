@@ -116,29 +116,7 @@ Após conectar, será possível visualizar as tabelas criadas automaticamente pe
 
 ## Console H2
 
-> Inserir print da tela do H2 Console conectado.
-
-### Como inserir a imagem no Markdown
-
-1. Crie uma pasta chamada:
-
-```text
-docs/images
-```
-
-2. Coloque a imagem dentro dela.
-
-Exemplo:
-
-```text
-docs/images/h2-console.png
-```
-
-3. Adicione no README:
-
-```md
 ![H2 Console](docs/images/h2-console.png)
-```
 
 ### Resultado esperado
 
