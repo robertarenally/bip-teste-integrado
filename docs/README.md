@@ -53,6 +53,7 @@ Problemas corrigidos:
 - Locking pessimista para evitar concorrência
 - Prevenção de inconsistência e lost update
 - Validações de transferência
+- Implementação do frontend
 
 ---
 
@@ -317,5 +318,167 @@ POST http://localhost:8080/api/v1/beneficios/transferencias
 ### 📷 Evidência esperada
 
 ![Transferencia](images/postman-transferencia.png)
+
+---
+
+# 🖥️ Frontend Angular
+
+Foi implementado um frontend Angular moderno, responsivo e integrado ao backend Spring Boot, consumindo os endpoints de benefícios e transferências.
+
+## 🛠️ Tecnologias utilizadas no Frontend
+
+- Angular 20
+- TypeScript
+- Bootstrap 5
+- Bootstrap Icons
+- Reactive Forms
+- Signals / Computed
+- Chart.js / ng2-charts
+- ngx-mask
+- SweetAlert2
+- Jasmine / Karma
+
+---
+
+## ✅ Funcionalidades implementadas no Frontend
+
+- Dashboard inicial com indicadores
+- Cards com total de benefícios, benefícios ativos e valor total
+- Gráficos com Chart.js
+- Listagem moderna de benefícios
+- Busca por nome, descrição, valor ou status
+- Ordenação por colunas
+- Paginação
+- Badges de status
+- Visualização detalhada de benefício
+- Cadastro de benefício via modal
+- Edição de benefício via modal
+- Exclusão com confirmação visual
+- Tela de transferência entre benefícios
+- Validação de saldo
+- Formulários reativos com validação visual
+- Máscara monetária
+- Loading state
+- Layout responsivo
+
+---
+
+# ▶️ Como executar o Frontend
+
+Acesse a pasta do frontend:
+
+```bash
+cd frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute a aplicação:
+
+```bash
+ng serve
+```
+
+Acesse:
+
+```text
+http://localhost:4200
+```
+
+---
+
+# 🧪 Testes unitários do Frontend
+
+Para executar os testes unitários:
+
+```bash
+ng test
+```
+
+Para executar uma única vez em modo headless:
+
+```bash
+ng test --watch=false --browsers=ChromeHeadless
+```
+
+Para gerar cobertura:
+
+```bash
+ng test --watch=false --browsers=ChromeHeadless --code-coverage
+```
+
+---
+
+# 📷 Evidências - Frontend Angular
+
+## Dashboard
+
+![Dashboard Frontend](images/frontend-dashboard.png)
+
+---
+
+## Listagem de Benefícios
+
+![Listagem de Benefícios](images/frontend-beneficios-listagem.png)
+
+---
+
+## Modal de Cadastro de Benefício
+
+![Modal Cadastro Benefício](images/frontend-beneficio-cadastro.png)
+
+---
+
+## Modal de Edição de Benefício
+
+![Modal Edição Benefício](images/frontend-beneficio-edicao.png)
+
+---
+
+## Modal de Visualização de Benefício
+
+![Modal Visualização Benefício](images/frontend-beneficio-visualizacao.png)
+
+---
+
+## Modal de Exclusão de Benefício
+
+![Modal Exclusão Benefício](images/frontend-beneficio-exclusao.png)
+
+---
+
+## Tela de Transferência
+
+![Tela Transferência](images/frontend-transferencia.png)
+
+---
+
+## Testes Unitários do Frontend
+
+![Testes Frontend](images/frontend-testes.png)
+
+---
+
+# 🔗 Integração Frontend + Backend
+
+O frontend consome os endpoints REST disponibilizados pelo backend:
+
+```http
+GET /api/v1/beneficios
+POST /api/v1/beneficios
+PUT /api/v1/beneficios/{id}
+DELETE /api/v1/beneficios/{id}
+POST /api/v1/beneficios/transferencias
+```
+
+A URL base da API é configurada no arquivo de environment do Angular:
+
+```ts
+apiUrl: 'http://localhost:8080/api/v1'
+```
 
 ---
