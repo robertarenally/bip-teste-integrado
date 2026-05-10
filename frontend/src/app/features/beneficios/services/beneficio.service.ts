@@ -27,11 +27,11 @@ export class BeneficioService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  transferir(origemId: number, destinoId: number, valor: number): Observable<void> {
+  transferir(fromId: number, toId: number, amount: number): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/transferencias`, {
-      origemId,
-      destinoId,
-      valor
+      fromId,
+      toId,
+      amount
     });
   }
 }

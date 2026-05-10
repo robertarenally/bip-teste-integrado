@@ -1,0 +1,165 @@
+<section class="transferencia-page">
+  <div class="page-header">
+    <div>
+      <span class="page-kicker">Movimentação</span>
+      <h1>Transferência de Benefícios</h1>
+      <p>Transfira saldo entre benefícios ativos de forma segura.</p>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn btn-outline-sicoob" routerLink="/">
+        <i class="bi bi-speedometer2 me-2"></i>
+        Dashboard
+      </a>
+
+      <a class="btn btn-outline-sicoob" routerLink="/beneficios">
+        <i class="bi bi-list-check me-2"></i>
+        Benefícios
+      </a>
+    </div>
+  </div>
+
+  @if (carregando()) {
+    <div class="loading-card">
+      <div class="spinner-border text-sicoob"></div>
+      <strong>Carregando benefícios...</strong>
+    </div>
+  }
+
+  @if (erro()) {
+    <div class="alert alert-danger">
+      {{ erro() }}
+    </div>
+  }
+
+  @if (!carregando() && !erro()) {
+    <div class="row g-4">
+      <div class="col-12 col-xl-7">
+        <article class="transfer-card">
+          <div class="card-title-area">
+            <div>
+              <h2>Nova transferência</h2>
+              <p>Selecione a origem, o destino e o valor da movimentação.</p>
+            </div>
+            <i class="bi bi-arrow-left-right"></i>
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="transferir()">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Benefício de origem</label>
+                <select class="form-select" formControlName="origemId" [class.is-invalid]="campoInvalido('origemId')">
+                  <option [ngValue]="null">Selecione o benefício de origem</option>
+
+                  @for (beneficio of beneficios(); track beneficio.id) {
+                    <option [ngValue]="beneficio.id">
+                      {{ beneficio.nome }} - {{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}
+                    </option>
+                  }
+                </select>
+
+                @if (campoInvalido('origemId')) {
+                  <div class="invalid-feedback d-block">Selecione o benefício de origem.</div>
+                }
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Benefício de destino</label>
+                <select class="form-select" formControlName="destinoId" [class.is-invalid]="campoInvalido('destinoId')">
+                  <option [ngValue]="null">Selecione o benefício de destino</option>
+
+                  @for (beneficio of beneficiosDestino(); track beneficio.id) {
+                    <option [ngValue]="beneficio.id">
+                      {{ beneficio.nome }} - {{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}
+                    </option>
+                  }
+                </select>
+
+                @if (campoInvalido('destinoId')) {
+                  <div class="invalid-feedback d-block">Selecione o benefício de destino.</div>
+                }
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Valor da transferência</label>
+
+                <div class="input-icon">
+                  <i class="bi bi-cash-coin"></i>
+
+                  <input
+                  type="text"
+                  class="form-control"
+                  formControlName="valor"
+                  mask="separator.2"
+                  thousandSeparator="."
+                  decimalMarker=","
+                  prefix="R$ "
+                  placeholder="R$ 0,00"
+                  [class.is-invalid]="campoInvalido('valor')"
+                  />
+                </div>
+
+              @if (campoInvalido('valor')) {
+                  <div class="invalid-feedback d-block">
+                  Informe um valor maior que zero.
+                  </div>
+              }
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Saldo disponível</label>
+                <div class="readonly-box">
+                  {{ origemSelecionada()?.valor || 0 | currency:'BRL':'symbol':'1.2-2' }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-sicoob" type="submit" [disabled]="salvando()">
+                @if (salvando()) {
+                  <span class="spinner-border spinner-border-sm me-2"></span>
+                  Transferindo...
+                } @else {
+                  <i class="bi bi-check-circle me-2"></i>
+                  Realizar transferência
+                }
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <div class="col-12 col-xl-5">
+        <article class="summary-card">
+          <div class="summary-header">
+            <i class="bi bi-shield-check"></i>
+            <div>
+              <h2>Resumo da operação</h2>
+              <p>Confira os dados antes de confirmar.</p>
+            </div>
+          </div>
+
+          <div class="summary-line">
+            <span>Origem</span>
+            <strong>{{ origemSelecionada()?.nome || 'Não selecionado' }}</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Destino</span>
+            <strong>{{ destinoSelecionado()?.nome || 'Não selecionado' }}</strong>
+          </div>
+
+          <div class="summary-line highlight">
+            <span>Valor</span>
+            <strong>{{ valorTransferencia() | currency:'BRL':'symbol':'1.2-2' }}</strong>
+          </div>
+
+          <div class="security-note">
+            <i class="bi bi-lock"></i>
+            <span>A operação será validada pelo backend antes da conclusão.</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  }
+</section>
