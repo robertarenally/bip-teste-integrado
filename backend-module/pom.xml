@@ -11,6 +11,7 @@
     </parent>
     
     <artifactId>backend-module</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>17</java.version>
