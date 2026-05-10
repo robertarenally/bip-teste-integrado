@@ -41,3 +41,32 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 - Testes (15%)
 - Documentação (10%)
 - Frontend (10%)
+
+## Como executar
+
+mvn clean install
+mvn -pl backend-module spring-boot:run
+
+## Banco H2
+
+Console: http://localhost:8080/h2-console
+
+JDBC URL:
+jdbc:h2:mem:bipdb
+
+## Swagger
+
+http://localhost:8080/swagger-ui.html
+
+## Endpoints principais
+
+GET /api/v1/beneficios
+
+POST /api/v1/beneficios
+
+PUT /api/v1/beneficios/{id}
+
+DELETE /api/v1/beneficios/{id}
+
+POST /api/v1/beneficios/transferencias
+

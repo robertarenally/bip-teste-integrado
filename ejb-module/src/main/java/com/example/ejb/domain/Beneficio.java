@@ -32,12 +32,34 @@ public class Beneficio {
     protected Beneficio() {
         // Construtor exigido pelo JPA
     }
+    
+    public static Beneficio criar(
+            String nome,
+            String descricao,
+            BigDecimal valor
+    ) {
+        return new Beneficio(nome, descricao, valor);
+    }
 
-    public Beneficio(String nome, String descricao, BigDecimal valor) {
+    private Beneficio(String nome, String descricao, BigDecimal valor) {  	
+    	if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome é obrigatório.");
+        }
         this.nome = nome;
         this.descricao = descricao;
         this.valor = validarValor(valor);
         this.ativo = Boolean.TRUE;
+    }
+    
+    public void atualizar(String nome, String descricao, BigDecimal valor, Boolean ativo) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome é obrigatório.");
+        }
+
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = validarValor(valor);
+        this.ativo = ativo != null ? ativo : Boolean.TRUE;
     }
 
     public void debitar(BigDecimal amount) {

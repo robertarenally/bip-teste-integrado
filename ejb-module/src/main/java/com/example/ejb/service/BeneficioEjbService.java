@@ -16,13 +16,20 @@ public class BeneficioEjbService {
 
     public void transfer(Long fromId, Long toId, BigDecimal amount) {
     	
+        if (fromId == null || toId == null) {
+            throw new IllegalArgumentException("Benefício de origem e destino são obrigatórios.");
+        }
+
+        if (fromId.equals(toId)) {
+            throw new IllegalArgumentException("Benefício de origem e destino não podem ser iguais.");
+        }
+        
     	// Aplica lock pessimista para impedir alterações simultâneas
     	// nos registros durante a transferência, evitando inconsistência
     	// de saldo e problemas de concorrência (lost update)
         Beneficio from = em.find(Beneficio.class, fromId, LockModeType.PESSIMISTIC_WRITE);
         Beneficio to = em.find(Beneficio.class, toId, LockModeType.PESSIMISTIC_WRITE);
 
-        //resolve o bug das validações
         if (from == null || to == null) {
             throw new IllegalArgumentException("Benefício de origem ou destino não encontrado.");
         }
