@@ -8,6 +8,7 @@ import { Beneficio } from '../../models/beneficio.model';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BeneficioFormModalComponent } from '../../pages/beneficio-form-modal/beneficio-form-modal.component';
+import { BeneficioDetailModalComponent } from '../../pages/beneficio-detail-modal/beneficio-detail-modal.component';
 
 type SortField = 'nome' | 'descricao' | 'valor' | 'ativo';
 type SortDirection = 'asc' | 'desc';
@@ -178,5 +179,14 @@ export class BeneficioListComponent implements OnInit {
     modalRef.closed.subscribe(() => {
         this.carregarBeneficios();
     });
+  }
+  visualizarBeneficio(beneficio: Beneficio): void {
+    const modalRef = this.modalService.open(BeneficioDetailModalComponent, {
+        centered: true,
+        size: 'md',
+        modalDialogClass: 'beneficio-detail-modal'
+    });
+
+    modalRef.componentInstance.beneficio = beneficio;
   }
 }
