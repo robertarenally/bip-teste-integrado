@@ -1,0 +1,362 @@
+.beneficio-list-page {
+  min-height: 100%;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at top right, rgba(0, 174, 157, 0.12), transparent 32rem),
+    #f5f7fa;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-kicker {
+  display: inline-flex;
+  margin-bottom: 0.35rem;
+  color: #00ae9d;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #003641;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+.page-header p {
+  margin: 0.35rem 0 0;
+  color: #64748b;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-sicoob {
+  background: #00ae9d;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 12px 24px rgba(0, 174, 157, 0.25);
+}
+
+.btn-sicoob:hover {
+  background: #008f82;
+  color: #fff;
+}
+
+.btn-outline-sicoob {
+  border: 1px solid rgba(0, 174, 157, 0.35);
+  color: #003641;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+}
+
+.btn-outline-sicoob:hover {
+  background: rgba(0, 174, 157, 0.12);
+  color: #003641;
+}
+
+.list-card {
+  border: 1px solid rgba(0, 54, 65, 0.08);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  padding: 1.25rem;
+}
+
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-box {
+  position: relative;
+  width: min(100%, 520px);
+}
+
+.search-box i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  color: #00ae9d;
+  transform: translateY(-50%);
+}
+
+.search-box .form-control {
+  min-height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding-left: 2.75rem;
+  color: #003641;
+}
+
+.search-box .form-control:focus {
+  border-color: #00ae9d;
+  box-shadow: 0 0 0 0.2rem rgba(0, 174, 157, 0.12);
+}
+
+.refresh-button {
+  min-height: 48px;
+  border-radius: 999px;
+  color: #003641;
+  font-weight: 700;
+}
+
+.beneficio-table {
+  margin-bottom: 0;
+}
+
+.beneficio-table thead th {
+  color: #003641;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.beneficio-table tbody td {
+  color: #334155;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: middle;
+}
+
+.beneficio-table tbody tr {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.beneficio-table tbody tr:hover {
+  background: rgba(0, 174, 157, 0.04);
+}
+
+.beneficio-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.beneficio-name strong,
+.beneficio-name small {
+  display: block;
+}
+
+.beneficio-name strong {
+  color: #003641;
+}
+
+.beneficio-name small {
+  color: #94a3b8;
+}
+
+.beneficio-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 0.85rem;
+  background: rgba(0, 174, 157, 0.12);
+  color: #00ae9d;
+  font-weight: 800;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  background: rgba(44, 156, 91, 0.12);
+  color: #197644;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.status-badge.inactive {
+  background: rgba(100, 116, 139, 0.12);
+  color: #64748b;
+}
+
+.quick-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: translateY(-2px);
+}
+
+.icon-button.view {
+  background: rgba(0, 54, 65, 0.08);
+  color: #003641;
+}
+
+.icon-button.edit {
+  background: rgba(0, 174, 157, 0.12);
+  color: #00ae9d;
+}
+
+.icon-button.delete {
+  background: rgba(217, 45, 32, 0.1);
+  color: #d92d20;
+}
+
+.loading-area {
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-height: 320px;
+  color: #003641;
+}
+
+.text-sicoob {
+  color: #00ae9d;
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  padding: 1rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.empty-state i {
+  color: #00ae9d;
+  font-size: 2rem;
+}
+
+.empty-state strong {
+  margin-top: 0.5rem;
+  color: #003641;
+}
+
+.mobile-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.mobile-beneficio-card {
+  border: 1px solid #eef2f7;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.mobile-card-header,
+.mobile-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobile-card-header strong,
+.mobile-card-header small {
+  display: block;
+}
+
+.mobile-card-header strong {
+  color: #003641;
+}
+
+.mobile-card-header small {
+  color: #94a3b8;
+}
+
+.mobile-beneficio-card p {
+  margin: 0.85rem 0;
+  color: #64748b;
+}
+
+.mobile-card-footer strong {
+  color: #003641;
+}
+
+.pagination-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.pagination .page-link {
+  border: 0;
+  color: #003641;
+  font-weight: 700;
+  border-radius: 0.65rem;
+  margin: 0 0.1rem;
+}
+
+.pagination .page-item.active .page-link {
+  background: #00ae9d;
+  color: #fff;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .beneficio-list-page {
+    padding: 1rem;
+  }
+
+  .page-header,
+  .list-toolbar,
+  .pagination-area {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .header-actions,
+  .header-actions .btn,
+  .refresh-button {
+    width: 100%;
+  }
+
+  .header-actions .btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+}

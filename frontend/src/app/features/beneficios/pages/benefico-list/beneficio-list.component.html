@@ -1,0 +1,217 @@
+<section class="beneficio-list-page">
+  <div class="page-header">
+    <div>
+      <span class="page-kicker">Gestão</span>
+      <h1>Benefícios</h1>
+      <p>Consulte, filtre e gerencie os benefícios cadastrados.</p>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn btn-outline-sicoob" routerLink="/">
+        <i class="bi bi-speedometer2 me-2"></i>
+        Dashboard
+      </a>
+
+      <button class="btn btn-sicoob" type="button">
+        <i class="bi bi-plus-circle me-2"></i>
+        Novo benefício
+      </button>
+    </div>
+  </div>
+
+  <article class="list-card">
+    <div class="list-toolbar">
+      <div class="search-box">
+        <i class="bi bi-search"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar por nome, descrição, valor ou status..."
+          [ngModel]="termoBusca()"
+          (ngModelChange)="buscar($event)"
+        />
+      </div>
+
+      <button class="btn btn-light refresh-button" type="button" (click)="carregarBeneficios()">
+        <i class="bi bi-arrow-clockwise me-2"></i>
+        Atualizar
+      </button>
+    </div>
+
+    @if (carregando()) {
+      <div class="loading-area">
+        <div class="spinner-border text-sicoob" role="status"></div>
+        <strong>Carregando benefícios...</strong>
+      </div>
+    }
+
+    @if (erro()) {
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        {{ erro() }}
+      </div>
+    }
+
+    @if (!carregando() && !erro()) {
+      <div class="table-responsive d-none d-lg-block">
+        <table class="table beneficio-table align-middle">
+          <thead>
+            <tr>
+              <th (click)="ordenarPor('nome')">
+                Nome
+                <i class="bi ms-1" [class]="sortIcon('nome')"></i>
+              </th>
+
+              <th (click)="ordenarPor('descricao')">
+                Descrição
+                <i class="bi ms-1" [class]="sortIcon('descricao')"></i>
+              </th>
+
+              <th (click)="ordenarPor('valor')">
+                Valor
+                <i class="bi ms-1" [class]="sortIcon('valor')"></i>
+              </th>
+
+              <th (click)="ordenarPor('ativo')">
+                Status
+                <i class="bi ms-1" [class]="sortIcon('ativo')"></i>
+              </th>
+
+              <th class="text-end">Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (beneficio of beneficiosPaginados(); track beneficio.id) {
+              <tr>
+                <td>
+                  <div class="beneficio-name">
+                    <div class="beneficio-avatar">
+                      {{ beneficio.nome.charAt(0) }}
+                    </div>
+
+                    <div>
+                      <strong>{{ beneficio.nome }}</strong>
+                      <small>ID #{{ beneficio.id }}</small>
+                    </div>
+                  </div>
+                </td>
+
+                <td>{{ beneficio.descricao }}</td>
+
+                <td class="fw-bold">
+                  {{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}
+                </td>
+
+                <td>
+                  <span class="status-badge" [class.inactive]="!beneficio.ativo">
+                    {{ beneficio.ativo ? 'Ativo' : 'Inativo' }}
+                  </span>
+                </td>
+
+                <td>
+                  <div class="quick-actions">
+                    <button class="icon-button view" type="button" title="Visualizar">
+                      <i class="bi bi-eye"></i>
+                    </button>
+
+                    <button class="icon-button edit" type="button" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+
+                    <button class="icon-button delete" type="button" title="Excluir" (click)="excluir(beneficio)">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="5">
+                  <div class="empty-state">
+                    <i class="bi bi-inbox"></i>
+                    <strong>Nenhum benefício encontrado</strong>
+                    <span>Tente ajustar os filtros ou cadastre um novo benefício.</span>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mobile-list d-lg-none">
+        @for (beneficio of beneficiosPaginados(); track beneficio.id) {
+          <article class="mobile-beneficio-card">
+            <div class="mobile-card-header">
+              <div>
+                <strong>{{ beneficio.nome }}</strong>
+                <small>ID #{{ beneficio.id }}</small>
+              </div>
+
+              <span class="status-badge" [class.inactive]="!beneficio.ativo">
+                {{ beneficio.ativo ? 'Ativo' : 'Inativo' }}
+              </span>
+            </div>
+
+            <p>{{ beneficio.descricao }}</p>
+
+            <div class="mobile-card-footer">
+              <strong>{{ beneficio.valor | currency:'BRL':'symbol':'1.2-2' }}</strong>
+
+              <div class="quick-actions">
+                <button class="icon-button view" type="button">
+                  <i class="bi bi-eye"></i>
+                </button>
+
+                <button class="icon-button edit" type="button">
+                  <i class="bi bi-pencil"></i>
+                </button>
+
+                <button class="icon-button delete" type="button" (click)="excluir(beneficio)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        } @empty {
+          <div class="empty-state">
+            <i class="bi bi-inbox"></i>
+            <strong>Nenhum benefício encontrado</strong>
+            <span>Tente ajustar os filtros ou cadastre um novo benefício.</span>
+          </div>
+        }
+      </div>
+
+      <div class="pagination-area">
+        <span>
+          Exibindo {{ beneficiosPaginados().length }} de {{ beneficiosFiltrados().length }} registros
+        </span>
+
+        <nav>
+          <ul class="pagination mb-0">
+            <li class="page-item" [class.disabled]="paginaAtual() === 1">
+              <button class="page-link" type="button" (click)="paginaAnterior()">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+            </li>
+
+            @for (pagina of paginas(); track pagina) {
+              <li class="page-item" [class.active]="paginaAtual() === pagina">
+                <button class="page-link" type="button" (click)="irParaPagina(pagina)">
+                  {{ pagina }}
+                </button>
+              </li>
+            }
+
+            <li class="page-item" [class.disabled]="paginaAtual() === totalPaginas()">
+              <button class="page-link" type="button" (click)="proximaPagina()">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    }
+  </article>
+</section>

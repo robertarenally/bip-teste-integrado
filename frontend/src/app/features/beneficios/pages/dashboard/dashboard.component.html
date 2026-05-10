@@ -6,10 +6,17 @@
       <p>Resumo operacional dos benefícios cadastrados e movimentações recentes.</p>
     </div>
 
-    <button class="btn btn-sicoob" type="button" (click)="carregarDashboard()">
-      <i class="bi bi-arrow-clockwise me-2"></i>
-      Atualizar
-    </button>
+    <div class="dashboard-actions">
+      <a class="btn btn-outline-sicoob" routerLink="/beneficios">
+        <i class="bi bi-list-check me-2"></i>
+        Ver benefícios
+      </a>
+
+      <button class="btn btn-sicoob" type="button" (click)="carregarDashboard()">
+        <i class="bi bi-arrow-clockwise me-2"></i>
+        Atualizar
+      </button>
+    </div>
   </div>
 
   @if (carregando()) {

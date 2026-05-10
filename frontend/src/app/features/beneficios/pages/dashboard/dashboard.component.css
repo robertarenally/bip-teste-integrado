@@ -314,3 +314,35 @@
     min-height: 240px;
   }
 }
+
+.dashboard-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline-sicoob {
+  border: 1px solid rgba(0, 174, 157, 0.35);
+  color: #003641;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.btn-outline-sicoob:hover {
+  background: rgba(0, 174, 157, 0.12);
+  color: #003641;
+}
+
+@media (max-width: 768px) {
+  .dashboard-actions,
+  .dashboard-actions .btn {
+    width: 100%;
+  }
+
+  .dashboard-actions .btn {
+    display: flex;
+    justify-content: center;
+  }
+}

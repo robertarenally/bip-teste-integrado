@@ -6,6 +6,7 @@ import { BeneficioService } from '../../services/beneficio.service';
 import { TransferenciaHistoryService } from '../../services/transferencia-history.service';
 import { Beneficio } from '../../models/beneficio.model';
 import { Transferencia } from '../../models/transferencia.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ import { Transferencia } from '../../models/transferencia.model';
     CommonModule,
     BaseChartDirective,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    RouterLink
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
