@@ -53,11 +53,10 @@ Problemas corrigidos:
 - Locking pessimista para evitar concorrência
 - Prevenção de inconsistência e lost update
 - Validações de transferência
-- Implementação do frontend
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas no BackEnd
 
 - Java 17
 - Spring Boot 3
@@ -83,6 +82,8 @@ Problemas corrigidos:
 - Documentação Swagger
 - Testes automatizados
 - README detalhado
+- Implementação do frontend
+- Deploy público frontend + backend
 
 ## ✅ Scripts executados automaticamente
 
@@ -482,3 +483,23 @@ apiUrl: 'http://localhost:8080/api/v1'
 ```
 
 ---
+
+# 🌐 Aplicação Online
+
+Disponibilização da aplicação fullstack em produção no GitHub Pages(FrontEnd) e Render(backend)
+
+## Frontend
+
+https://robertarenally.github.io/bip-teste-integrado/
+
+## Backend
+
+https://bip-teste-integrado.onrender.com
+
+## Swagger
+
+https://bip-teste-integrado.onrender.com/swagger-ui/index.html
+
+## OpenAPI JSON
+
+https://bip-teste-integrado.onrender.com/v3/api-docs
