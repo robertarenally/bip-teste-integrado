@@ -41,3 +41,281 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 - Testes (15%)
 - Documentação (10%)
 - Frontend (10%)
+
+# 🚀 Atividades Realizadas
+
+## 🐞 Correção do Bug no EJB
+
+Problemas corrigidos:
+
+- Validação de saldo insuficiente
+- Controle transacional
+- Locking pessimista para evitar concorrência
+- Prevenção de inconsistência e lost update
+- Validações de transferência
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- H2 Database
+- Swagger / OpenAPI
+- Maven
+- Angular
+- EJB
+- JUnit / Mockito
+
+---
+
+## ✅ Melhorias implementadas
+
+- Arquitetura em camadas
+- CRUD completo
+- Integração Backend + EJB
+- Controle transacional
+- Locking pessimista
+- Tratamento de exceções
+- Execução automática de scripts SQL
+- Documentação Swagger
+- Testes automatizados
+- README detalhado
+
+## ✅ Scripts executados automaticamente
+
+Os scripts abaixo são executados automaticamente na inicialização da aplicação:
+
+- `db/schema.sql`
+- `db/seed.sql`
+
+---
+
+# ▶️ Como executar
+
+## Build do projeto
+
+```bash
+mvn clean install
+```
+
+## Executar backend
+
+```bash
+mvn -pl backend-module spring-boot:run
+```
+
+---
+
+# 📷 Evidência - Inicialização da aplicação
+
+![Spring Boot Startup](images/startup.png)
+
+# 🗄️ Banco H2
+
+Acesse o console:
+
+```text
+http://localhost:8080/h2-console
+```
+
+## Configuração da conexão
+
+| Campo     | Valor              |
+|------------|--------------------|
+| JDBC URL  | jdbc:h2:mem:bipdb |
+| User Name | sa                 |
+| Password  | *(vazio)*          |
+
+Após conectar, será possível visualizar as tabelas criadas automaticamente pelos scripts:
+
+- `schema.sql`
+- `seed.sql`
+
+---
+
+# 📷 Evidências - Banco H2
+
+## Console H2
+
+![H2 Console](images/h2-console.png)
+
+![H2 Console](images/h2-console-select.png)
+
+---
+
+# 📘 Swagger / OpenAPI
+
+Com o backend em execução, acesse:
+
+```text
+http://localhost:8080/swagger-ui.html
+```
+
+## OpenAPI JSON
+
+```text
+http://localhost:8080/v3/api-docs
+```
+
+---
+
+# 📷 Evidências - Swagger
+
+## Swagger UI
+
+![Swagger](images/swagger.png)
+
+---
+
+# 🔌 Endpoints principais
+
+## Benefícios
+
+```http
+GET /api/v1/beneficios
+POST /api/v1/beneficios
+PUT /api/v1/beneficios/{id}
+DELETE /api/v1/beneficios/{id}
+```
+
+## Transferências
+
+```http
+POST /api/v1/beneficios/transferencias
+```
+
+---
+
+# 🧪 Testando a API via Postman
+
+## Base URL
+
+```text
+http://localhost:8080
+```
+
+---
+
+## 🔍 Listar benefícios
+
+### Request
+
+```http
+GET http://localhost:8080/api/v1/beneficios
+```
+
+### 📷 Evidência esperada
+
+![GET Beneficios](images/postman-get-beneficios.png)
+
+---
+
+## 🔍 Buscar benefício por ID
+
+### Request
+
+```http
+GET http://localhost:8080/api/v1/beneficios/1
+```
+
+### 📷 Evidência esperada
+
+![GET Beneficios](images/postman-get-beneficio-por-id.png)
+
+---
+
+## ➕ Criar benefício
+
+### Request
+
+```http
+POST http://localhost:8080/api/v1/beneficios
+```
+
+### Headers
+
+```text
+Content-Type: application/json
+```
+
+### Body
+
+```json
+{
+  "nome": "Vale Alimentação",
+  "descricao": "Benefício mensal",
+  "valor": 500.00,
+  "ativo": true
+}
+```
+
+### 📷 Evidência esperada
+
+![POST Beneficio](images/postman-post-beneficio.png)
+
+---
+
+## ✏️ Atualizar benefício
+
+### Request
+
+```http
+PUT http://localhost:8080/api/v1/beneficios/3
+```
+
+### Body
+
+```json
+{
+  "nome": "Vale Refeição",
+  "descricao": "Benefício atualizado",
+  "valor": 750.00,
+  "ativo": true
+}
+```
+
+### 📷 Evidência esperada
+
+![PUT Beneficio](images/postman-put-beneficio.png)
+
+---
+
+## ❌ Remover benefício
+
+### Request
+
+```http
+DELETE http://localhost:8080/api/v1/beneficios/3
+```
+
+### 📷 Evidência esperada
+
+![DELETE Beneficio](images/postman-delete-beneficio.png)
+
+---
+
+## 💸 Transferência entre benefícios
+
+### Request
+
+```http
+POST http://localhost:8080/api/v1/beneficios/transferencias
+```
+
+### Body
+
+```json
+{
+  "fromId": 1,
+  "toId": 2,
+  "amount": 100.00
+}
+```
+
+### 📷 Evidência esperada
+
+![Transferencia](images/postman-transferencia.png)
+
+---
