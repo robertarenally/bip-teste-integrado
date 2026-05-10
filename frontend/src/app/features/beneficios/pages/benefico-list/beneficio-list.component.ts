@@ -6,6 +6,9 @@ import { RouterLink } from '@angular/router';
 import { BeneficioService } from '../../services/beneficio.service';
 import { Beneficio } from '../../models/beneficio.model';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BeneficioFormModalComponent } from '../../pages/beneficio-form-modal/beneficio-form-modal.component';
+
 type SortField = 'nome' | 'descricao' | 'valor' | 'ativo';
 type SortDirection = 'asc' | 'desc';
 
@@ -18,6 +21,7 @@ type SortDirection = 'asc' | 'desc';
 })
 export class BeneficioListComponent implements OnInit {
   private readonly beneficioService = inject(BeneficioService);
+  private readonly modalService = inject(NgbModal);
 
   beneficios = signal<Beneficio[]>([]);
   carregando = signal(false);
@@ -146,5 +150,33 @@ export class BeneficioListComponent implements OnInit {
     }
 
     return this.sortDirection() === 'asc' ? 'bi-sort-up' : 'bi-sort-down';
+  }
+
+  abrirNovoBeneficio(): void {
+    const modalRef = this.modalService.open(BeneficioFormModalComponent, {
+        centered: true,
+        backdrop: 'static',
+        size: 'lg',
+        modalDialogClass: 'beneficio-modal'
+    });
+
+    modalRef.closed.subscribe(() => {
+        this.carregarBeneficios();
+    });
+  }
+
+  editarBeneficio(beneficio: Beneficio): void {
+    const modalRef = this.modalService.open(BeneficioFormModalComponent, {
+        centered: true,
+        backdrop: 'static',
+        size: 'lg',
+        modalDialogClass: 'beneficio-modal'
+    });
+
+    modalRef.componentInstance.beneficio = beneficio;
+
+    modalRef.closed.subscribe(() => {
+        this.carregarBeneficios();
+    });
   }
 }

@@ -12,7 +12,7 @@
         Dashboard
       </a>
 
-      <button class="btn btn-sicoob" type="button">
+      <button class="btn btn-sicoob" type="button" (click)="abrirNovoBeneficio()">
         <i class="bi bi-plus-circle me-2"></i>
         Novo benefício
       </button>
@@ -115,7 +115,11 @@
                       <i class="bi bi-eye"></i>
                     </button>
 
-                    <button class="icon-button edit" type="button" title="Editar">
+                    <button
+                      class="icon-button edit"
+                      type="button"
+                      title="Editar"
+                      (click)="editarBeneficio(beneficio)">
                       <i class="bi bi-pencil"></i>
                     </button>
 

@@ -1,0 +1,144 @@
+<div class="modal-header custom-modal-header">
+  <div>
+    <span class="modal-kicker">
+      {{ modoEdicao ? 'Atualização' : 'Cadastro' }}
+    </span>
+
+    <h4 class="modal-title">
+      {{ titulo }}
+    </h4>
+  </div>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Fechar"
+    [disabled]="salvando"
+    (click)="activeModal.dismiss()">
+  </button>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <div class="modal-body custom-modal-body">
+    @if (erro) {
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        {{ erro }}
+      </div>
+    }
+
+    <div class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Nome</label>
+
+        <div class="input-icon">
+          <i class="bi bi-wallet2"></i>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nome"
+            placeholder="Ex: Vale Alimentação"
+            [class.is-invalid]="campoInvalido('nome')"
+          />
+        </div>
+
+        @if (campoInvalido('nome')) {
+          <div class="invalid-feedback d-block">
+            Informe um nome com pelo menos 3 caracteres.
+          </div>
+        }
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Descrição</label>
+
+        <textarea
+          class="form-control"
+          rows="3"
+          formControlName="descricao"
+          placeholder="Descreva o benefício"
+          [class.is-invalid]="campoInvalido('descricao')">
+        </textarea>
+
+        @if (campoInvalido('descricao')) {
+          <div class="invalid-feedback d-block">
+            Informe uma descrição com pelo menos 3 caracteres.
+          </div>
+        }
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label class="form-label">Valor</label>
+
+        <div class="input-icon">
+          <i class="bi bi-cash-coin"></i>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="valor"
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+            prefix="R$ "
+            placeholder="R$ 0,00"
+            [class.is-invalid]="campoInvalido('valor')"
+          />
+        </div>
+
+        @if (campoInvalido('valor')) {
+          <div class="invalid-feedback d-block">
+            Informe um valor maior que zero.
+          </div>
+        }
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label class="form-label">Status</label>
+
+        <div class="status-toggle">
+          <div>
+            <strong>{{ form.value.ativo ? 'Ativo' : 'Inativo' }}</strong>
+            <span>
+              {{ form.value.ativo ? 'Disponível para uso' : 'Indisponível no momento' }}
+            </span>
+          </div>
+
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              formControlName="ativo"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer custom-modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-sicoob"
+      [disabled]="salvando"
+      (click)="activeModal.dismiss()">
+      Cancelar
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-sicoob"
+      [disabled]="salvando">
+
+      @if (salvando) {
+        <span class="spinner-border spinner-border-sm me-2"></span>
+        Salvando...
+      } @else {
+        <i class="bi bi-check-circle me-2"></i>
+        Salvar benefício
+      }
+    </button>
+  </div>
+</form>
