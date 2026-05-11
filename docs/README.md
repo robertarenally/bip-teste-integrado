@@ -90,22 +90,14 @@ Os scripts abaixo são executados automaticamente na inicialização da aplicaç
 
 ## 🛠️ Tecnologias Utilizadas
 
-### ☕ Backend
 - Java 17
 - Spring Boot 3
 - Spring Data JPA
 - EJB
 - Maven
-
-### 🗄️ Banco de Dados
 - H2 Database
-
-### 📄 Documentação
 - Swagger / OpenAPI
-
-### 🧪 Testes
-- JUnit 5
-- Mockito
+- JUnit 5 / Mockito
 
 ---
 
