@@ -56,20 +56,6 @@ Problemas corrigidos:
 
 ---
 
-## 🛠️ Tecnologias utilizadas no BackEnd
-
-- Java 17
-- Spring Boot 3
-- Spring Data JPA
-- H2 Database
-- Swagger / OpenAPI
-- Maven
-- Angular
-- EJB
-- JUnit / Mockito
-
----
-
 ## ✅ Melhorias implementadas
 
 - Arquitetura em camadas
@@ -85,6 +71,12 @@ Problemas corrigidos:
 - Implementação do frontend
 - Deploy público frontend + backend
 
+## 🔀 Fluxo Git utilizado
+
+O desenvolvimento foi realizado na branch `dev`, com integração final para a branch `main` por meio de Pull Request.
+
+A branch `main` contém a versão final da entrega.
+
 ## ✅ Scripts executados automaticamente
 
 Os scripts abaixo são executados automaticamente na inicialização da aplicação:
@@ -94,15 +86,30 @@ Os scripts abaixo são executados automaticamente na inicialização da aplicaç
 
 ---
 
-# ▶️ Como executar
+# 🔧 Backend Java
 
-## Build do projeto
+## 🛠️ Tecnologias Utilizadas
+
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- EJB
+- Maven
+- H2 Database
+- Swagger / OpenAPI
+- JUnit 5 / Mockito
+
+---
+
+# ▶️ Como executar o Backend no ambiente local
+
+## Build do Backend
 
 ```bash
 mvn clean install
 ```
 
-## Executar backend
+## Executar o Backend
 
 ```bash
 mvn -pl backend-module spring-boot:run
@@ -110,7 +117,7 @@ mvn -pl backend-module spring-boot:run
 
 ---
 
-# 📷 Evidência - Inicialização da aplicação
+# 📷 Evidência - Inicialização da API
 
 ![Spring Boot Startup](images/startup.png)
 
@@ -324,9 +331,9 @@ POST http://localhost:8080/api/v1/beneficios/transferencias
 
 # 🖥️ Frontend Angular
 
-Foi implementado um frontend Angular moderno, responsivo e integrado ao backend Spring Boot, consumindo os endpoints de benefícios e transferências.
+Foi implementado um frontend Angular moderno, responsivo e integrado ao backend, consumindo os endpoints de benefícios e transferências.
 
-## 🛠️ Tecnologias utilizadas no Frontend
+## 🛠️ Tecnologias utilizadas
 
 - Angular 20
 - TypeScript
@@ -364,7 +371,7 @@ Foi implementado um frontend Angular moderno, responsivo e integrado ao backend 
 
 ---
 
-# ▶️ Como executar o Frontend
+# ▶️ Como executar o Frontend no ambiente local
 
 Acesse a pasta do frontend:
 
@@ -381,7 +388,7 @@ npm install
 Execute a aplicação:
 
 ```bash
-ng serve
+ng start
 ```
 
 Acesse:
