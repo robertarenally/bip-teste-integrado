@@ -56,20 +56,6 @@ Problemas corrigidos:
 
 ---
 
-## 🛠️ Tecnologias utilizadas no BackEnd
-
-- Java 17
-- Spring Boot 3
-- Spring Data JPA
-- H2 Database
-- Swagger / OpenAPI
-- Maven
-- Angular
-- EJB
-- JUnit / Mockito
-
----
-
 ## ✅ Melhorias implementadas
 
 - Arquitetura em camadas
@@ -85,12 +71,34 @@ Problemas corrigidos:
 - Implementação do frontend
 - Deploy público frontend + backend
 
+## 🔀 Fluxo Git utilizado
+
+O desenvolvimento foi realizado na branch `dev`, com integração final para a branch `main` por meio de Pull Request.
+
+A branch `main` contém a versão final da entrega.
+
 ## ✅ Scripts executados automaticamente
 
 Os scripts abaixo são executados automaticamente na inicialização da aplicação:
 
 - `db/schema.sql`
 - `db/seed.sql`
+
+---
+
+# 🔧 Backend Java
+
+## 🛠️ Tecnologias utilizadas no BackEnd
+
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- H2 Database
+- Swagger / OpenAPI
+- Maven
+- Angular
+- EJB
+- JUnit / Mockito
 
 ---
 
