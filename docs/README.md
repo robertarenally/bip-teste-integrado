@@ -101,7 +101,7 @@ Os scripts abaixo são executados automaticamente na inicialização da aplicaç
 
 ---
 
-# ▶️ Como executar o Backend
+# ▶️ Como executar o Backend no ambiente local
 
 ## Build do Backend
 
@@ -331,9 +331,9 @@ POST http://localhost:8080/api/v1/beneficios/transferencias
 
 # 🖥️ Frontend Angular
 
-Foi implementado um frontend Angular moderno, responsivo e integrado ao backend Spring Boot, consumindo os endpoints de benefícios e transferências.
+Foi implementado um frontend Angular moderno, responsivo e integrado ao backend, consumindo os endpoints de benefícios e transferências.
 
-## 🛠️ Tecnologias utilizadas no Frontend
+## 🛠️ Tecnologias utilizadas
 
 - Angular 20
 - TypeScript
@@ -371,7 +371,7 @@ Foi implementado um frontend Angular moderno, responsivo e integrado ao backend 
 
 ---
 
-# ▶️ Como executar o Frontend
+# ▶️ Como executar o Frontend no ambiente local
 
 Acesse a pasta do frontend:
 
