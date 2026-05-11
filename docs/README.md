@@ -88,7 +88,7 @@ Os scripts abaixo são executados automaticamente na inicialização da aplicaç
 
 # 🔧 Backend Java
 
-## 🛠️ Tecnologias utilizadas no BackEnd
+Tecnologias utilizadas no BackEnd:
 
 - Java 17
 - Spring Boot 3
