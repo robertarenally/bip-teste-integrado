@@ -94,15 +94,15 @@ Os scripts abaixo são executados automaticamente na inicialização da aplicaç
 
 ---
 
-# ▶️ Como executar
+# ▶️ Como executar o Backend
 
-## Build do projeto
+## Build do Backend
 
 ```bash
 mvn clean install
 ```
 
-## Executar backend
+## Executar o Backend
 
 ```bash
 mvn -pl backend-module spring-boot:run
@@ -110,7 +110,7 @@ mvn -pl backend-module spring-boot:run
 
 ---
 
-# 📷 Evidência - Inicialização da aplicação
+# 📷 Evidência - Inicialização da API
 
 ![Spring Boot Startup](images/startup.png)
 
@@ -381,7 +381,7 @@ npm install
 Execute a aplicação:
 
 ```bash
-ng serve
+ng start
 ```
 
 Acesse:
